@@ -17,6 +17,9 @@ const Gig = db.define('gig', {
   contact_email: {
     type: Sequelize.STRING
   }
-})
+});
 
+Gig.sync().then(() => {
+  console.log('table created');
+});
 module.exports = Gig;
