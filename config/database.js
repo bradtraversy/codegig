@@ -1,12 +1,9 @@
 const Sequelize = require('sequelize');
-const dotenv = require('dotenv');
 
-dotenv.config();
-
-module.exports =  new Sequelize(process.env.DATABASE_URL, {
+module.exports = new Sequelize(process.env.POSTGRES_URI, {
   host: 'localhost',
   dialect: 'postgres',
-  operatorsAliases: false,
+  operatorsAliases: 0,
 
   pool: {
     max: 5,
@@ -15,3 +12,4 @@ module.exports =  new Sequelize(process.env.DATABASE_URL, {
     idle: 10000
   },
 });
+

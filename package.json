@@ -12,10 +12,10 @@
   "dependencies": {
     "dotenv": "^8.1.0",
     "express": "^4.16.4",
-    "express-handlebars": "^3.0.0",
-    "pg": "^7.7.1",
-    "pg-hstore": "^2.3.2",
-    "sequelize": "^4.44.3"
+    "express-handlebars": "^5.2.0",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
     "nodemon": "^1.18.8"

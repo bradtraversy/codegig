@@ -1,7 +1,8 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-const bodyParser = require('body-parser');
 const path = require('path');
+const app = express();
+const config = require('dotenv').config();
 
 // Database
 const db = require('./config/database');
@@ -11,7 +12,7 @@ db.authenticate()
   .then(() => console.log('Database connected...'))
   .catch(err => console.log('Error: ' + err))
 
-const app = express();
+
 
 // Handlebars
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
@@ -27,8 +28,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => res.render('index', { layout: 'landing' }));
 
 // Gig routes
-app.use('/gigs', require('./routes/gigs'));
+require('./app/routesDefinations/gig.routesDefs')(app);
 
 const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`
+  );
+});
 
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (err, promise) => {
+  console.log(`Error: ${err.message}`.red);
+});
