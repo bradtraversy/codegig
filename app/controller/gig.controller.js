@@ -1,5 +1,3 @@
-const express = require('express');
-const router = express.Router();
 const Gig = require('../models/Gig');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
