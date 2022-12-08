@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^8.1.0",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "express-handlebars": "^3.0.0",
     "pg": "^7.7.1",
     "pg-hstore": "^2.3.2",
